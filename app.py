@@ -280,15 +280,20 @@ Fig_3.show()
 import json
 import requests as rq
 
+##This section is silenced to allow the hosting of the notebook on the Streamlit servers and avoid the file connection errors. IT is being replaced by a file hoseted locally.
 #Items to query the website for the GEOJson file
-download_url_GEO='https://static.data.gouv.fr/resources/contours-des-communes-de-france-simplifie-avec-regions-et-departement-doutre-mer-rapproches/20210523-142601/a-dep2021.json'
-response_2 = rq.get(download_url_GEO)
-if response_2.status_code == 200:
-   geojson_data = response_2.json()
-   print ('GEOJson file accessed- Dictionary created successfully.')
-else:
-    print (f'Still failing. status: {response.status_code}')
-print (geojson_data['features'][0]['properties'])
+#download_url_GEO='https://static.data.gouv.fr/resources/contours-des-communes-de-france-simplifie-avec-regions-et-departement-doutre-mer-rapproches/20210523-142601/a-dep2021.json'
+#response_2 = rq.get(download_url_GEO)
+#if response_2.status_code == 200:
+#   geojson_data = response_2.json()
+#   print ('GEOJson file accessed- Dictionary created successfully.')
+#else:
+#    print (f'Still failing. status: {response.status_code}')
+#print (geojson_data['features'][0]['properties'])
+
+#This section retreives the JSON file stored lcoally.
+with open("a-dep2021.json", "r", encoding="utf-8") as f:
+    geojson_data = json.load(f)
 
 #%%
 #Creating the heatmap

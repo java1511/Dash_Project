@@ -335,6 +335,7 @@ import seaborn as sns
 import pandas as pd
 
 app = Dash(__name__)
+server = app.server
 
 # Pre-calculate the country average once
 country_avg = df_final['DEC_PIMP18'].mean()

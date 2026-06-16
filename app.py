@@ -33,7 +33,7 @@ import requests as rq
 import zipfile
 import plotly.io as pio
 import streamlit as st
-pio.renderers.default = "svg" # or "png"
+#pio.renderers.default = "svg" # or "png"
 
 from IPython.core.pylabtools import figsize
 from matplotlib.pyplot import twinx

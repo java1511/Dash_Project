@@ -29,6 +29,7 @@ import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import io
+import base64
 import requests as rq
 import zipfile
 import plotly.io as pio

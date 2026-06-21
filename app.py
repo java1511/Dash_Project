@@ -232,7 +232,13 @@ ax1.set_xlabel='counties'
 ax1.set_xticklabels(ax1.get_xticklabels(),rotation=45,ha='right')
 ax1.set_ylabel='Gini index'
 
-plt.show()
+buf = io.BytesIO()
+fig.savefig(buf, format="png", bbox_inches='tight')
+data = base64.b64encode(buf.getbuffer()).decode("utf8")
+plt.close(fig)
+
+# This variable now holds your actual image data
+encoded_image = f"data:image/png;base64,{data}"
 
 #scatter plot visualizing unemployment and inequality using plotly express
 df_fig_2=df_final[['DEPT_name','DEC_GI18', 'DEC_PCHO18']]
@@ -369,7 +375,12 @@ app.layout = html.Div([
     dcc.Graph(
         id='unemployment-scatter',
         figure=Fig_2
-    )
+    ),
+    # 1. Display the Matplotlib Subplots
+    html.Img(src=encoded_image, style={'width': '100%'}),
+    
+    # 2. Display the Plotly Scatter Plot
+    dcc.Graph(id='unemployment-scatter', figure=Fig_2)
 ])
 
 # Callback to update both charts based on selection

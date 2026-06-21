@@ -243,6 +243,7 @@ Fig_2=px.scatter(
     y='DEC_PCHO18',
     title='Unemployment rate vs inequality',
     color='DEC_PCHO18',
+    color_continuous_scale='Viridis',
     hover_name='DEPT_name',
 )
 Fig_2.show()

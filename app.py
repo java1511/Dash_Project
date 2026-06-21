@@ -388,7 +388,7 @@ app.layout = html.Div([
         figure=Fig_2
     ),
     # 1. Display the Matplotlib Subplots
-    html.Img(src=encoded_image, style={'width': '50%'}),
+    html.Img(src=encoded_image, style={'width': '75%'}),
     
     # 2. Display the Plotly Scatter Plot
     dcc.Graph(id='unemployment-scatter', figure=Fig_3)

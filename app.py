@@ -364,6 +364,11 @@ app.layout = html.Div([
     html.Div([
         dcc.Graph(id='pie-chart')
     ],style={'display': 'inline-block', 'width': '48%'}),
+
+    dcc.Graph(
+        id='unemployment-scatter',
+        figure=Fig_2
+    )
 ])
 
 # Callback to update both charts based on selection

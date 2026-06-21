@@ -381,8 +381,7 @@ app.layout = html.Div([
             id='choropleth-map',
             figure=fig # This matches the 'fig' variable name from your map code
         )
-    ], style={'width': '80%', 'margin': '0 auto'}) # Centers the map on the page
-])
+    ], style={'width': '80%', 'margin': '0 auto'}), # Centers the map on the page
 
     dcc.Graph(
         id='unemployment-scatter',

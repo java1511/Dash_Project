@@ -373,6 +373,17 @@ app.layout = html.Div([
         dcc.Graph(id='pie-chart')
     ],style={'display': 'inline-block', 'width': '48%'}),
 
+    html.H1("My French Department Dashboard", style={'textAlign': 'center'}),
+    
+    # Wrap your choropleth map inside a Dash Graph component
+    html.Div([
+        dcc.Graph(
+            id='choropleth-map',
+            figure=fig # This matches the 'fig' variable name from your map code
+        )
+    ], style={'width': '80%', 'margin': '0 auto'}) # Centers the map on the page
+])
+
     dcc.Graph(
         id='unemployment-scatter',
         figure=Fig_2

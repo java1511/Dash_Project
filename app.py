@@ -373,7 +373,7 @@ app.layout = html.Div([
         dcc.Graph(id='pie-chart')
     ],style={'display': 'inline-block', 'width': '48%'}),
 
-    html.H1("My French Department Dashboard", style={'textAlign': 'center'}),
+    html.H1("My French Department Dashboard", style={'textAlign': 'center','fontFamily': 'Trebuchet MS, sans-serif'}),
     
     # Wrap your choropleth map inside a Dash Graph component
     html.Div([
@@ -391,7 +391,7 @@ app.layout = html.Div([
     html.Img(src=encoded_image, style={'width': '50%'}),
     
     # 2. Display the Plotly Scatter Plot
-    dcc.Graph(id='unemployment-scatter', figure=Fig_2)
+    dcc.Graph(id='unemployment-scatter', figure=Fig_3)
 ])
 
 # Callback to update both charts based on selection

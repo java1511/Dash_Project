@@ -73,15 +73,13 @@ df_names.drop (['Unnamed: 2', 'Unnamed: 3','Unnamed: 4','Unnamed: 5', 'Unnamed: 
 df_names.drop ([0,1],axis=0,inplace=True)
 headers=['DEPT','DEPT_name']
 df_names.columns=headers
-print (df_names.info())
 
 #Ensure that all the county codes with 2 digits start with a zero.
 df_names['DEPT']=df_names['DEPT'].astype(str).str.zfill(2)
-print (df_names.info())
 
 #Ensure that the county code column also accomodates for 3-digit long codes
 df_names['DEPT']=df_names['DEPT'].astype(str).apply(lambda x: x[:3] if x.startswith('97')else x[:2])
-print (df_names.info())
+
 #%% md
 # <div class="alert alert-block alert-info">
 # 
@@ -190,11 +188,9 @@ df_names['DEPT']=df_names['DEPT'].astype(str).str.zfill(3)
 
 #Merge the Dept names to the df_final dataframe
 df_final=df_final.merge(df_names[['DEPT','DEPT_name']],left_on='DEPT_proc',right_on='DEPT', how='left')
-print (df_final.tail(50))
 
 #Let's remove the unnecessary columns:
 df_final_cleaned = df_final.drop(['DEPT_proc', 'DEPT_y'], axis=1)
-print (df_final_cleaned.head())
 
 df_final=df_final_cleaned
 #%% md

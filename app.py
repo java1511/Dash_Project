@@ -2,26 +2,7 @@
 # <div class="alert alert-block alert-info">
 # The purpose of this exercise it to build a picture of wealth and revenue distribution across France's counties (Departements)
 # This exercise will allow us to practice all every aspect of Exploratory Data Analysis:
-# 
-# <b>Data Collection</b>
-#    - Collect data for an external source and turn it into a workable dataframe
-# 
-# <b>Data preparation</b>
-#    - Remove unnecessary columns
-#    - Group the data per county code bearing in mind the following rules : they can be 2 digits long for codes ranging from 01 to 95 and 3 digits long for overseas territories ranging from 971 to 988. They are also two territories (Corsica) with codes mixing numeric and alphanumeric (2A and 2B). It is understood that the statistical value becomes less relevant as means within a county will not take into account the discrepancies in that county. This exercise focus on the Python coding and data analysis techniques.
-# 
-# <b>Data Exploration</b>
-# 
-# <b>Data Visualization</b>
-#    - Visualise the data in different ways:
-#         - Top 10 inequal counties
-#         - Top 10 equal counties
-#         - Interactive dashboard to provide the revenue breakdown for a particular county
-#         - Build a geographical heat map to display the overall data.
-# 
-# <b>Data Interpretation</b>
-# </div>
-#%%
+
 #Data Collection
 #import necessary libraries
 
@@ -80,48 +61,10 @@ df_names['DEPT']=df_names['DEPT'].astype(str).str.zfill(2)
 #Ensure that the county code column also accomodates for 3-digit long codes
 df_names['DEPT']=df_names['DEPT'].astype(str).apply(lambda x: x[:3] if x.startswith('97')else x[:2])
 
-#%% md
-# <div class="alert alert-block alert-info">
-# 
-# Looking at the data counts for the different columns, we observe that all the columns have balanced number of data in them:
-# - 12395 populated fields in columns 0, 24
-# - 12394 populated fields for columns 3 to 14, 17, 18, 22, 23
-# - 12355 populated fields for column 16
-# - 11954 populated fields for columns 19 to 21
-# - 11740 populated fields for column 15
-# - 11390 populated fields for column 1
-# - 10598 populated fields for column 2
-# 
-# 
-# The metadata file provides me with the meaning of the different fields in the data set. The field named DEC_NOTE18 was of particular importance as it rates the quality of each record. The different categorical values are:
-# 
-#  - 0 - no particular issue.
-#  - 1 - strong increase from previous year (might be due to fiscal changes in the rules). Acceptable.
-#  - 5 - information too inconsistent to be released. Not reliable.
-# 
-# We need to assess the reliability of the data. To do so, we check the number of occurrences for each categorical value
-# </div>
 #%%
 #data preparation
 print (df_raw['DEC_NOTE18'].value_counts())
-#%% md
-# <div class="alert alert-block alert-info">
-# The distribution is as follows:
-# 
-# - 12262 out of 12395 records are rated 0
-# - 132 out of 12395 records are rated 1
-# - 1 out 12395 records is rated 5
-# 
-# 12262 records are rated 0 (showing n particular issue). It amounts to 98.92% of the data set. The data looks sound.
-# 
-# 
-# To achieve the exercise's objective, the dataset must be manipulated. The final result must be a dataframe with one record per county code. To do so:
-# 
-#    - Several columns must be removed (not necessary)
-#    - The IRIS code must be manipulated so that each county code is isolated, bearing in mind the constraints stated at the beginning of this exercise
-#    - The data must be grouped per county code
-# </div>
-#%%
+
 #Remove the fields that are not necessary.
 df_cleaned = df_raw.drop(['DEC_TP6018','DEC_Q118','DEC_MED18','DEC_Q318','DEC_EQ18','DEC_D118','DEC_D218','DEC_D318','DEC_D418','DEC_D618','DEC_D718','DEC_D818','DEC_D918','DEC_RD18','DEC_S80S2018','DEC_NOTE18'],axis=1)
 
@@ -215,7 +158,7 @@ fig, (ax0, ax1) = plt.subplots(1, 2, figsize=(15, 5), sharey=True)
 df_final.sort_values(by="DEC_GI18",ascending=False,axis=0,inplace=True)
 df_gini=df_final[['DEPT_x','DEPT_name','DEC_GI18']].head(10)
 df_gini.plot(kind='bar',x='DEPT_name',y='DEC_GI18',color='orange',ax=ax0)
-ax0.set_title('Most inequal counties in 2018')
+ax0.set_title('Most unequal counties in 2018')
 ax0.set_xlabel='counties'
 ax0.set_xticklabels(ax0.get_xticklabels(),rotation=45,ha='right')
 ax0.set_ylabel='Gini index'

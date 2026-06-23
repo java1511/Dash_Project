@@ -1,9 +1,9 @@
 The purpose of this exercise it to build a picture of wealth and revenue distribution across France's counties (Departements)
 This exercise will allow us to practice all every aspect of Exploratory Data Analysis:
 
-  	- Collect data for an external source and turn it into a workable dataframe
-	- Remove unnecessary columns
-	- Group the data per county code bearing in mind the following rules : they can be 2 digits long for codes ranging from 01 to 95 and 3 digits long for overseas territories ranging from 971 to 988. They are also two territories (Corsica) with codes mixing numeric and alphanumeric (2A and 2B). It is understood that the statistical value becomes less relevant as means within a county will not take into account the discrepancies in that county. This exercise focus on the Python coding and data analysis techniques.
+- Collect data for an external source and turn it into a workable dataframe
+- Remove unnecessary columns
+- Group the data per county code bearing in mind the following rules : they can be 2 digits long for codes ranging from 01 to 95 and 3 digits long for overseas territories ranging from 971 to 988. They are also two territories (Corsica) with codes mixing numeric and alphanumeric (2A and 2B). It is understood that the statistical value becomes less relevant as means within a county will not take into account the discrepancies in that county. This exercise focus on the Python coding and data analysis techniques.
 
 * Data Exploration
 

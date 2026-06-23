@@ -5,8 +5,7 @@ This exercise will allow us to practice all every aspect of Exploratory Data Ana
 	- Remove unnecessary columns
 	- Group the data per county code bearing in mind the following rules : they can be 2 digits long for codes ranging from 01 to 95 and 3 digits long for overseas territories ranging from 971 to 988. They are also two territories (Corsica) with codes mixing numeric and alphanumeric (2A and 2B). It is understood that the statistical value becomes less relevant as means within a county will not take into account the discrepancies in that county. This exercise focus on the Python coding and data analysis techniques.
 
-Data Exploration
-———————————————-
+* Data Exploration
 
 Looking at the data counts for the different columns, we observe that all the columns have balanced number of data in them:
 - 12395 populated fields in columns 0, 24
@@ -46,8 +45,7 @@ French overseas territories are three-digit long and range from 972 to 988.
 I could not think of a single approach to extract the county codes from the IRIS codes. I decided to break up the main dataset in three subsets (one for main land, one for corsica and one for the overseas territories) in order to use different filtering methods. Once the three subsets are created, we group the records in each one of the subsets. Finally, we combine the three subsets into a main one that will be used for visualization.
 
 
-Data analysis
-—————————————
+* Data analysis
 
 Regarding the diagram ‘Unemployment rate vs inequality’:
 Regarding the top bar charts: We observe that the inequality is limited to values ranging from 0.32 to 0.50. The average index for France, in 2018 was 0.32. Slightly above the EU average standing at 0.29.
@@ -61,9 +59,13 @@ Regarding the diagram ‘employment rate vs inequality’
 
 This graph comes to nuance the previous diagram. Although the trend is respected in that counties with the biggest number of employed population seem to have a lower inequality index, there are more factor to explain the inequality index. Counties such as La Réunion show a high rate of employment and yet score badly in terms of inequality.
 
-Data Visualization
+* Data Visualization
+This project was the opportunity to use different techniques of viaualization and different languages (Matplotlib, Dash, Plotly Express)
+
    - Visualise the data in different ways:
-        - Top 10 unequal counties
-        - Top 10 equal counties
-        - Interactive dashboard to provide the revenue breakdown for a particular county
-        - Build a geographical heat map to display the data.
+        - Top 10 unequal counties (Matplotlib)
+        - Top 10 equal counties (MAtplotlib)
+        - Impact of unemployment rate on the unequality index (Plotly Express)
+        - Impact of the employment rate on the unequality index (Plotly Express)
+        - Interactive dashboard to provide the revenue breakdown for a particular county (Dash)
+        - Build a geographical heat map to display the data (Plotly).
